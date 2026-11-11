@@ -239,3 +239,28 @@ The two scratch projects used for the run were deleted afterwards at the owner's
 - The starter prompt's setup lines now say how to find the project and the thinking level on a phone.
 - A privacy trap on the phone: in the row of icons under a reply, the one beside the three dots is **Share**. It opens a sheet headed "Share a better-formatted response. Anyone with the link can view this message", with Copy link, WhatsApp, Messages, X and More. The owner opened it by accident more than once while reaching for the three dots. A Map holds email addresses, so the notes now warn against it. Not checked: whether a link exists before Copy link is tapped, and whether a Business workspace can switch public links off.
 - The scratch project used for the phone run was deleted afterwards at the owner's request, with its two chats and uploaded files.
+
+## 9. Reading the playbook from a link, tested 2026-11-10
+
+The repo was made public and the brief's open question was tested: can ChatGPT run the playbook from links, with no files uploaded? One run, on the web, in a single-person scratch project with project-only memory and an empty Sources tab, GPT-6 on Medium. The starter prompt was the usual one with a single paragraph changed, to point at two `raw.githubusercontent.com` addresses on the `main` branch and to say the other files are in the same web folder.
+
+| Check | Result |
+| --- | --- |
+| Opens the two instruction files from the links | Pass. It worked for about 15 seconds and reported the playbook version line, which had been pushed four minutes earlier |
+| Reads a long file to the end (the 31 KB password module) | Pass. Asked for the Do line of step 7.2, the last bullet in the file and the title of Part 4, it quoted all three exactly. Its line count for the file was wrong (293; the file has about 350) |
+| Finds the other files by name in the same folder | Pass. It opened the interview and Map files without being given their addresses |
+| Runs the opening of the first session | Pass. Setup check, names, then the first interview question, close to word for word |
+| Stops and saves | Pass. Map in the right format, checklist titles word for word, `End of Map`, and the corrected phone instructions (three dots, avoid Share), which shows it was using the current notes file |
+| Resumes in a new chat | Pass. Found the saved Map, version 1, and where it stopped |
+| Picks up an edit | **Fail, so far.** A new version line was pushed. GitHub served it within four minutes. A new chat six and a half minutes after the push still reported the old line, and so did a "re-open it fresh" request. ChatGPT is reading its own stored copy of the page; how long it keeps one is not yet known |
+| Opens an address it has not seen | **Mixed.** The same file with `?d=...` added, and the same file addressed by commit id, both failed twice with a "Cache miss" error. The assistant said so and stopped, as the starter prompt tells it to, and did not guess |
+
+Two follow-up checks in fresh chats, nine minutes after the push:
+
+- The `main` address still returned the old version line.
+- The same file's page on github.com failed with "Cache miss", and ChatGPT also tried its GitHub plugin and showed a sign-in prompt for it. A non-technical user should never meet that prompt, so the playbook must use only `raw.githubusercontent.com` addresses.
+- The same file through the jsDelivr mirror failed with "Cache miss".
+
+So far the only addresses ChatGPT has opened are the plain `raw.githubusercontent.com/.../main/...` ones, and it keeps its own copy of each for longer than nine minutes.
+
+What this means: the link route works for reading and running the playbook. It does not deliver edits straight away, and a page that fails to open stops the session. Both matter for the choice between links and uploaded files (decision 25).
