@@ -150,3 +150,11 @@ The link route was tested the day the repo went public (research section 9). Cha
 Why uploads stay for now: the point of a link is that edits arrive without anyone doing anything. An edit that arrives at an unknown time, with no way to force it, is worse during a pilot than replacing one uploaded file, which takes effect at once and can be seen in the sources list. The version line in `00-start-here.md` works on either route, so the helper can always see which copy a chat read.
 
 This is reopened once the delay has been measured over a day. If edits arrive within about a day, links become the main route and the upload becomes the fallback. Decision 1 stands until then.
+
+## 26. A web link is not used to deliver the playbook or its edits
+
+Further tests the same evening (research section 9) looked for a way to force a fresh read. There is none. ChatGPT's page opener answers from a shared store of copies that ignores a page's own expiry settings; copies between nine minutes and 18 days old were seen. An address changed to look new was refused, on every site tried. Asking for a fresh read made no difference, and an old copy was described as just opened.
+
+So the delay in decision 25 cannot be measured into something dependable: it differs from page to page and nobody outside OpenAI controls it. Decision 1 stands, and the question in decision 25 is closed.
+
+What stays open is how the helper gets an edit into the couple's project without asking them to do anything. Two candidates, neither tested: the helper joins their workspace and replaces the file, or the files live in a shared Google Drive folder and are read through the Drive plugin.

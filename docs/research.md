@@ -266,3 +266,41 @@ A third check, in a fresh chat two hours and 25 minutes after the push: the `mai
 So far the only addresses ChatGPT has opened are the plain `raw.githubusercontent.com/.../main/...` ones, and it keeps its own copy of each for longer than two hours and 25 minutes. It gives no sign that the copy is old. A check the next day is still to do.
 
 What this means: the link route works for reading and running the playbook. It does not deliver edits straight away, and a page that fails to open stops the session. Both matter for the choice between links and uploaded files (decision 25).
+
+### Can the stored copy be bypassed? Tested the same evening
+
+Four more chats in the same scratch project, between two and a half and three hours after the push. Each asked ChatGPT to open a list of addresses and quote a line, with no search and no memory.
+
+| Tried | Result |
+| --- | --- |
+| The plain `main` address again, 18 minutes after the previous read | Still the old version line. One outside study (below) says an old copy is refreshed in the background after it is read; that did not happen here |
+| The same file under a different address on the same host (`/refs/heads/main/` in place of `/main/`) | "Cache miss", twice |
+| Files in the repo it had never opened (`README.md`, `03-tools-agreement.md`) | "Cache miss", twice each. A file it had opened earlier in the day (`02-intake.md`) opened |
+| The jsDelivr mirror with no `@` in the address | "Cache miss", twice |
+| A page on another site that returns a new random value on every request (`httpbin.org/uuid`) | The same value in two chats 100 seconds apart: a stored copy |
+| That page with `?n=2` added, and a made-up path on the same site | "Cache miss" |
+| A Cloudflare page that prints the time of the request | The same timestamp in three chats over seven minutes. It was 20 minutes old at the first read, from before this test began, so the copy was fetched for someone else. The page's own headers say it expired in 1970 |
+| Two clock pages | One copy was 9 minutes old. The other was 18 days old, and ChatGPT remarked on it |
+
+The echo page showed the reader identifies itself as `ChatGPT-User/1.0`.
+
+What the tests show:
+
+- ChatGPT's page opener answers from a store of copies that is shared between accounts. It ignores the page's own expiry headers, and a copy can be minutes or weeks old.
+- That evening it opened nothing it did not already hold a copy of, on any site. Adding something to an address to make it new therefore fails outright. Earlier the same day it had opened brand-new addresses in this repo without trouble; why that changed was not established.
+- Asking it to re-open or fetch fresh changes nothing. It reports an old copy as "opened just now".
+
+Outside sources, found by a search the same evening and not checked beyond reading them:
+
+- OpenAI's page on its crawlers says nothing about how long copies are kept (developers.openai.com/api/docs/bots.md). Its help page on offline web search says there is no refresh promise for any one address (help.openai.com/en/articles/20001203-offline-web-search-for-chatgpt-workspaces).
+- An outside study from July 2026 found a store keyed by exact address and shared between accounts, copies treated as fresh for about half an hour and then served stale while being refreshed, no expiry seen over weeks, and `no-store` ignored (think.resoneo.com/chatgpt-retrieval/).
+- OpenAI's note on link safety says an address is opened automatically only if its crawler has seen that exact address before (openai.com/index/ai-agent-link-safety/). That would explain the failures on new addresses, though not why new addresses opened earlier in the day.
+- No report was found of a method that forces a fresh read in ordinary chat. The setting that does it exists only for programmers using OpenAI's API.
+
+Routes that do read live, from OpenAI's help pages, none tested:
+
+- The GitHub plugin reads a repo directly, with no stored copy. Each partner would need a GitHub account and would have to authorise it.
+- The Google Drive plugin can read a document from a pasted link. Whether that read is live is not stated. A Drive file added as a project source does not stay in step with the original.
+- A custom plugin run by the helper reads live, but works on the web only, not in the iPhone app.
+
+What this means: there is no way to make the page opener read the current version. A link cannot be the route for delivering edits (decision 26).
