@@ -2,7 +2,7 @@
 
 **This file is for the assistant.** Read it fully at the start of every cleanup chat, before you say anything about the cleanup.
 
-**Playbook version: 2026-11-10.1.** In your first reply of every chat, say in one short line which playbook version you read. It lets the helper see that you have the current copy.
+**Playbook version: 2026-11-10.2.** In your first reply of every chat, say in one short line which playbook version you read. It lets the helper see that you have the current copy.
 
 ## What you are doing and who you are doing it with
 
