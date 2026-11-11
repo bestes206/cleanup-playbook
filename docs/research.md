@@ -261,6 +261,8 @@ Two follow-up checks in fresh chats, nine minutes after the push:
 - The same file's page on github.com failed with "Cache miss", and ChatGPT also tried its GitHub plugin and showed a sign-in prompt for it. A non-technical user should never meet that prompt, so the playbook must use only `raw.githubusercontent.com` addresses.
 - The same file through the jsDelivr mirror failed with "Cache miss".
 
-So far the only addresses ChatGPT has opened are the plain `raw.githubusercontent.com/.../main/...` ones, and it keeps its own copy of each for longer than nine minutes.
+A third check, in a fresh chat two hours and 25 minutes after the push: the `main` address still returned the old version line, and ChatGPT described it as "opened just now". GitHub had been serving the new line for over two hours.
+
+So far the only addresses ChatGPT has opened are the plain `raw.githubusercontent.com/.../main/...` ones, and it keeps its own copy of each for longer than two hours and 25 minutes. It gives no sign that the copy is old. A check the next day is still to do.
 
 What this means: the link route works for reading and running the playbook. It does not deliver edits straight away, and a page that fails to open stops the session. Both matter for the choice between links and uploaded files (decision 25).

@@ -142,3 +142,11 @@ The repo was made public on 2026-11-10 so that an assistant can read the playboo
 Before that, three things were taken out of `docs/brief.md`: the table describing the real household the example case was drawn from, the build instructions with their private link and local folder name, and the byline. The table was the reason: it described one real household's setup in detail, and a public repo is no place for that. The full original is kept outside version control.
 
 The commit history before publication held the untrimmed brief and links to private working sessions, so the public history begins with a single commit. This replaces decision 17.
+
+## 25. The pilot stays on uploaded files until the link's delay is known
+
+The link route was tested the day the repo went public (research section 9). ChatGPT read and ran the playbook from links without any uploaded files. It did not pick up an edit: more than two hours after GitHub had the new version, a fresh chat still read the old one and said it had opened the page just now. Any address other than the plain raw `main` one failed to open.
+
+Why uploads stay for now: the point of a link is that edits arrive without anyone doing anything. An edit that arrives at an unknown time, with no way to force it, is worse during a pilot than replacing one uploaded file, which takes effect at once and can be seen in the sources list. The version line in `00-start-here.md` works on either route, so the helper can always see which copy a chat read.
+
+This is reopened once the delay has been measured over a day. If edits arrive within about a day, links become the main route and the upload becomes the fallback. Decision 1 stands until then.
