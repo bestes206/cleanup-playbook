@@ -1,0 +1,13 @@
+# Real names and addresses to scan for; never committed
+.private-terms
+
+# Working copies that may hold a real household's details
+*.local.md
+pilot-data/
+.private/
+
+# Generated
+dist/
+__pycache__/
+*.zip
+.DS_Store
