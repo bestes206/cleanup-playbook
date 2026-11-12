@@ -290,6 +290,12 @@ What the tests show:
 - That evening it opened nothing it did not already hold a copy of, on any site. Adding something to an address to make it new therefore fails outright. Earlier the same day it had opened brand-new addresses in this repo without trouble; why that changed was not established.
 - Asking it to re-open or fetch fresh changes nothing. It reports an old copy as "opened just now".
 
+A check the next day, 23 hours and 35 minutes after the push, in a fresh chat in the same project:
+
+- The plain `main` address still returned the old version line. GitHub had been serving the new one for almost a day.
+- `README.md`, and the same file with `?v=123` added, both failed with "Cache miss" again.
+- The Cloudflare time page was 29 minutes old and the clock page 9 minutes old, so heavily used pages are refreshed while this one is not.
+
 Outside sources, found by a search the same evening and not checked beyond reading them:
 
 - OpenAI's page on its crawlers says nothing about how long copies are kept (developers.openai.com/api/docs/bots.md). Its help page on offline web search says there is no refresh promise for any one address (help.openai.com/en/articles/20001203-offline-web-search-for-chatgpt-workspaces).
