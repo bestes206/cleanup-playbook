@@ -310,3 +310,21 @@ Routes that do read live, from OpenAI's help pages, none tested:
 - A custom plugin run by the helper reads live, but works on the web only, not in the iPhone app.
 
 What this means: there is no way to make the page opener read the current version. A link cannot be the route for delivering edits (decision 26).
+
+### The GitHub plugin, tested 2026-11-15
+
+The repo owner connected ChatGPT's GitHub plugin on their own account. One chat in the same scratch project, on the web, GPT-6 on Medium, asked to use the plugin and nothing else.
+
+| Check | Result |
+| --- | --- |
+| Reads an edit straight away | Pass. A new version line was pushed and read correctly about a minute later, in eight seconds |
+| Reads the longest file to the end | Pass. Part 4's title and the file's last line, both word for word |
+| Lists the playbook folder | Pass. All nine file names (it said ten) |
+| Works inside a project chat | Pass, with no permission prompt in this run |
+
+Not tested, and each one decides whether this route suits the pilot:
+
+- An account that does not own the repo. Each partner would need a GitHub account of their own and would sign in to the plugin once. Whether that account can then read someone else's public repo is not stated in OpenAI's help page.
+- The iPhone app.
+- A two-person shared project on a Business workspace, where an admin may have to allow the plugin first.
+- The starter prompt itself. This test named the plugin outright; whether ChatGPT picks it up from an ordinary instruction every time, without falling back to the page opener and its old copies, is unknown.
