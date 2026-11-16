@@ -296,6 +296,13 @@ A check the next day, 23 hours and 35 minutes after the push, in a fresh chat in
 - `README.md`, and the same file with `?v=123` added, both failed with "Cache miss" again.
 - The Cloudflare time page was 29 minutes old and the clock page 9 minutes old, so heavily used pages are refreshed while this one is not.
 
+A check five days after the first push, on 2026-11-15, with a second edit pushed five minutes earlier. This time the message was pasted, as the first day's starter prompt had been, in case typed and pasted addresses are treated differently (a pasted address shows as a link in the message box):
+
+- The plain `main` address returned the version line from the first day, two edits behind. That copy has not been refreshed once in five days.
+- `README.md`, the `?v=5` form, and a module never opened before (`11-module-shared-calendar.md`) all failed with "Cache miss". Pasting made no difference.
+
+One result is still unexplained: on the first day, in the first chat of the then-empty project, ChatGPT opened five addresses that could not have been in any store, minutes after the repo went public. Every new address since has failed. As things stand, a session run from links would stop at the first file outside those five, which is the tools agreement.
+
 Outside sources, found by a search the same evening and not checked beyond reading them:
 
 - OpenAI's page on its crawlers says nothing about how long copies are kept (developers.openai.com/api/docs/bots.md). Its help page on offline web search says there is no refresh promise for any one address (help.openai.com/en/articles/20001203-offline-web-search-for-chatgpt-workspaces).
